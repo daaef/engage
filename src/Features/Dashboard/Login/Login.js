@@ -1,10 +1,67 @@
 import React, { Component } from 'react';
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import Logo from "../../../img/engage-dark-logo.svg";
+import LogoDark from "../../../img/engage-light-logo.svg";
+import {CSSTransition} from "react-transition-group";
 
 class DashboardLogin extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      light: true,
+      dark: false,
+      card: '',
+      title: '',
+      subtitle: '',
+      mainbg: ''
+    };
+  }
+  
+  handleToggle = ()=>{
+    this.setState({
+      light: !this.state.light,
+      dark: !this.state.dark
+    })
+  };
+   componentDidMount() {
+     switch (this.state.light) {
+       case true:
+         this.setState({
+           card: '#EEECEC',
+           title: '#6B6B6B',
+           subtitle: '#B0B0B0',
+           mainbg: '#ffffff'
+         });
+         break;
+       case false:
+         this.setState({
+           card: '#434242',
+           title: '#AEAEAE',
+           subtitle: '#6F6F6F',
+           mainbg: '#1D1D1D'
+         });
+         break;
+       default:
+         this.setState({
+           card: '#EEECEC',
+           title: '#6B6B6B',
+           subtitle: '#B0B0B0',
+           mainbg: '#ffffff'
+         })
+     }
+   }
   
   render() {
+    const toggleIn = keyframes`
+        to {
+          cx: 15;
+        }
+      `;
+    const toggleOut = keyframes`
+        to {
+          cx: 45;
+        }
+      `;
     const LoginHeader = styled.header`
     height: 100vh;
     width: 100%;
@@ -12,15 +69,12 @@ class DashboardLogin extends Component {
     position: relative;
     justify-content: center;
     align-items: center;
-
-    @media (max-width: 640px) {
-        height: 820px;
-    }
+    background: ${props => props.bg};
 `;
     const LoginCard = styled.div`
-    height: 60%;
+    min-height: 60%;
     width: 40%;
-    background: #EEECEC;
+    background: ${props => props.bg};
     border-radius: 25px;
     display: flex;
     flex-wrap: wrap;
@@ -28,8 +82,12 @@ class DashboardLogin extends Component {
     justify-content: center;
     align-items: center;
 
-    @media (max-width: 640px) {
-        height: 820px;
+    @media (max-width: 900px) {
+        width: 70%;
+    }
+    @media (max-width: 500px) {
+        width: 100%;
+        background: transparent;
     }
 `;
     const LoginBox= styled.div`
@@ -46,16 +104,13 @@ class DashboardLogin extends Component {
     div{
     margin-top: 30px;
     }
-    @media (max-width: 640px) {
-        height: 820px;
-    }
-`;
+   `;
     const LoginTitle = styled.h3`
     width: 100%;
     margin-top: 20px;
     font-family: Roboto,sans-serif;
     font-style: normal;
-    color: #6B6B6B;
+    color: ${props => props.color};
     font-weight: normal;
     font-size: 17px;
     line-height: normal;
@@ -70,7 +125,7 @@ class DashboardLogin extends Component {
     font-size: 13px;
     line-height: normal;
     text-align: center;
-    color: #B0B0B0;
+    color: ${props => props.color};
 `;
     const InputBox = styled.div`
     width: 65%;
@@ -78,7 +133,7 @@ class DashboardLogin extends Component {
     input{
       border: none;
       outline: none;
-      border-bottom: 3px solid black;
+      border-bottom: 3px solid ${props => props.color};
       background: transparent;
       &:focus ~ label{
         transform: translateY(-100%);
@@ -92,6 +147,7 @@ class DashboardLogin extends Component {
     }
     label,input{
       width: 100%;
+      color: ${props => props.color};
     }
 `;
     const Button = styled.button`
@@ -116,23 +172,53 @@ class DashboardLogin extends Component {
       box-shadow: 0 5px 10px grey;
     }
 `;
+    const Toggle = styled.svg`
+      circle{
+        cx:15;
+        animation: ${props => props.circlePos} .05s linear forwards;
+      }
+`;
     return (
-      <LoginHeader>
-        <LoginCard>
+      <LoginHeader bg={(this.state.light ? "#ffffff": "#1D1D1D")}>
+        <LoginCard bg={(this.state.light ? "#EEECEC": "#434242")}>
           <LoginBox>
+            <CSSTransition
+              in={this.state.light}
+              timeout={450}
+              classNames="vanish"
+              unmountOnExit
+            >
             <img src={Logo} alt=""/>
-            <LoginTitle>Welcome Admin!</LoginTitle>
-            <LoginSubTitle>Sign into your account.</LoginSubTitle>
-            <InputBox>
+            </CSSTransition>
+            <CSSTransition
+              in={this.state.dark}
+              timeout={450}
+              classNames="vanish"
+              unmountOnExit
+            >
+            <img src={LogoDark} alt=""/>
+            </CSSTransition>
+            <LoginTitle color={(this.state.light ? "#6B6B6B": "#AEAEAE")}>Welcome Admin!</LoginTitle>
+            <LoginSubTitle color={(this.state.light ? "#B0B0B0": "#6F6F6F")}>Sign into your account.</LoginSubTitle>
+            <InputBox color={(this.state.light ? "#000000": "#B0B0B0")}>
               <input id="username" type="text"/>
               <label htmlFor="username">Username</label>
             </InputBox>
-            <InputBox>
+            <InputBox color={(this.state.light ? "#000000": "#B0B0B0")}>
               <input id="password" type="text"/>
               <label htmlFor="password">Password</label>
             </InputBox>
             <InputBox align="center">
                <Button bg="#39A564" color="#ffffff">Login</Button>
+            </InputBox>
+            <InputBox align="center">
+              <Toggle circlePos={(this.state.light ? toggleIn : toggleOut)} onClick={this.handleToggle} height="30px" width={this.props.width} viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+                <g fill="none">
+                  <path d="M0 15C0 6.716 6.716 0 15 0h30c8.284 0 15 6.716 15 15 0 8.284-6.716 15-15 15H15C6.716 30 0 23.284 0 15z" fill="#525252"/>
+                  <circle cy="15" fill="#C4C4C4" r="15"/>
+                  <circle cy="15" fill="#E9A800" fillOpacity=".62" r="10"/>
+                </g>
+              </Toggle>
             </InputBox>
           </LoginBox>
         </LoginCard>

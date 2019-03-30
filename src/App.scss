@@ -15,7 +15,7 @@
 
 .vanish-enter-active{
   opacity: 1;
-  transition: opacity 350ms;
+  transition: 450ms;
 }
 
 .vanish-exit{
@@ -24,7 +24,7 @@
 
 .vanish-exit-active{
   opacity: 0;
-  transition: opacity 350ms;
+  transition: 450ms;
 }
 
 .loader{

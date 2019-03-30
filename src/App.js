@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import engageLogo from './img/engage-dark-logo.svg';
-import './App.scss';
 import { CSSTransition } from "react-transition-group"
 import AppLayout from "./AppLayout";
-class Loader extends Component {
+import './App.scss';
 
+class Loader extends Component {
   render() {
     return (
       <div className="loader">
@@ -27,7 +27,7 @@ class App extends Component {
       this.setState({
         loading:false
       })
-    },1000)
+    },2000)
   }
     render() {
     const { loading} = this.state;
@@ -35,7 +35,7 @@ class App extends Component {
     <>
       <CSSTransition
         in={loading}
-        timeout={350}
+        timeout={450}
         classNames="vanish"
         unmountOnExit
       >
@@ -44,7 +44,7 @@ class App extends Component {
   
       <CSSTransition
         in={!loading}
-        timeout={400}
+        timeout={450}
         classNames="vanish"
         unmountOnExit
       >
