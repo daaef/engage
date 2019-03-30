@@ -32,5 +32,8 @@
     "color": "#C51162",
     "icon": "./static/media/icon_fish2.bf110147.jpg",
     "createdAt": 1553882192896
+  },
+  "devDependencies": {
+    "redux": "^4.0.1"
   }
 }

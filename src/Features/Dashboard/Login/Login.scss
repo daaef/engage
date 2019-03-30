@@ -1,0 +1,171 @@
+.LoginHeader, .LoginHeader.light{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  transition: .4s;
+  &.dark{
+    background: #1D1D1D;
+  }
+}
+
+.LoginCard, .light .LoginCard {
+  min-height: 60%;
+  width: 40%;
+  background: #EEECEC;
+  border-radius: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  transition: .4s;
+  .dark &{
+    background: #434242;
+    @media (max-width: 500px) {
+      background: transparent;
+    }
+  }
+  @media (max-width: 900px) {
+    width: 70%;
+  }
+  @media (max-width: 500px) {
+    width: 100%;
+    background: transparent;
+  }
+}
+.LoginBox{
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: center;
+//align-items: baseline;
+  img{
+    width: 212px;
+    margin-top: 20px;
+  }
+  div{
+    margin-top: 30px;
+  }
+}
+.LoginTitle , .light .LoginTitle{
+  width: 100%;
+  margin-top: 20px;
+  font-family: Roboto,sans-serif;
+  font-style: normal;
+  color: #6B6B6B;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: normal;
+  text-align: center;
+  transition: .4s;
+  .dark &{
+    color: #AEAEAE;
+  }
+}
+.LoginSubTitle{
+  width: 100%;
+  margin-top: 5px;
+  font-family: "Roboto",sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: normal;
+  text-align: center;
+  color: #B0B0B0;
+  transition: .4s;
+  .dark &{
+    color: #6F6F6F;
+  }
+}
+
+.text-center{
+  text-align: center;
+}
+
+.InputBox , .light .InputBox{
+  width: 65%;
+  input{
+    border: none;
+    outline: none;
+    border-bottom: 3px solid black;
+    background: transparent;
+    transition: .4s;
+    .dark &{
+      border-bottom: 3px solid #B0B0B0;
+    }
+    &:focus ~ label, &.active ~ label{
+      transform: translateY(-100%);
+    }
+  }
+  label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: .4s;
+    transform: translateY(0%);
+  }
+  label,input{
+    width: 100%;
+    color: black;
+    .dark &{
+      color: #B0B0B0;
+    }
+  }
+}
+
+.btn{
+  background: #39A564;
+  color: #FFFFFF;
+  height: 30px;
+  width: 170px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  top: 0;
+  box-shadow: 0 10px 10px -5px grey;
+  transition: .4s;
+  &:hover{
+    top: -3px;
+    box-shadow: 0 15px 10px -10px grey;
+    .dark &{
+      top: 3px;
+      box-shadow: 0 12px 10px -10px grey;
+    }
+  }
+  &:active{
+    top: 1px;
+    box-shadow: 0 5px 10px grey;
+  }
+}
+.toggle, .light .toggle{
+  transition: .4s;
+  .dark & .bg{
+    fill: #E3E3E3;
+  }
+  circle{
+    cx:15;
+    transition: .4s;
+    .dark &{
+      cx:45;
+    }
+  }
+}
+
+#logo path, .light #logo path{
+  fill: #1D191A;
+  transition: .4s;
+  .dark &{
+    fill: #E3E3E3
+  }
+}
+
+#logo .e1, .light #logo .e1,.dark #logo .e1{
+  fill: #F8A900;
+}
