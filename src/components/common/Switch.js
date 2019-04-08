@@ -7,7 +7,7 @@ import {connect} from "react-redux";
 export const Switch = (props)=>{
   let themeSwitch;
   const initTheme = ()=> {
-    var darkThemeSelected = props.theme.light;
+    var darkThemeSelected = !props.theme.light;
     // update checkbox
     themeSwitch.checked = darkThemeSelected;
     // update body data-theme attribute

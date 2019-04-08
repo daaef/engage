@@ -4,7 +4,10 @@ import { mode_dark,mode_light } from "../../store/actions/toggle_dark";
 import {Switch} from "../common/Switch";
 import {Logo} from "../svgs/Logo";
 import {Loading} from "../common/Loader";
-import {loginUser} from "../../actions/authActions";
+import {loginUser, logoutUser} from "../../actions/authActions";
+import store from "../../store";
+import {startAction} from "../../store/actions/start";
+import {stopAction} from "../../store/actions/stop";
 
 class Login extends Component {
   constructor(props) {
@@ -28,7 +31,7 @@ class Login extends Component {
       password: this.state.password
     };
     
-    this.props.loginUser(userData);
+    store.dispatch(loginUser(userData));
     
   }
   
@@ -42,13 +45,12 @@ class Login extends Component {
   
   componentDidMount() {
     setTimeout(
-      this.setState({
-        loading: false
-      })
-    , 500);
+    this.props.stopAction
+    , 1500);
     if (this.props.auth.isAuthenticated) {
       this.props.history.push('/dashboard');
     }
+    console.log()
   }
   
   
@@ -64,7 +66,7 @@ class Login extends Component {
   render() {
     return (
       <>
-          {(this.state.loading) ? <Loading/> :
+          {(this.props.loading.loading) ? <Loading/> : ""}
             <header id="login">
               <div className="form--holder">
                 <form className="login-form" onSubmit={this.onSubmit}>
@@ -100,12 +102,11 @@ class Login extends Component {
                     <button className="btn btn--success btn--md btn--full-width">Login</button>
                   </div>
                   <div className="switch--holder">
-                    {/*<Switch theme={this.props}/>*/}
+                    <Switch theme={this.props}/>
                   </div>
                 </form>
               </div>
             </header>
-          }
       </>
     );
   }
@@ -114,7 +115,16 @@ class Login extends Component {
 
 const mapStateToProps = state => ({
   auth: state.auth,
-  errors: state.errors
+  errors: state.errors,
+  loading: state.loading,
+  light: state.light
 });
 
-export default connect(mapStateToProps, {loginUser})(Login);
+const mapDispatchToProps = dispatch => ({
+  modeDark: () => dispatch(mode_dark),
+  modeLight: () => dispatch(mode_light),
+  startAction: () => dispatch(startAction),
+  stopAction: () => dispatch(stopAction)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

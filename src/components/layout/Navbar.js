@@ -4,13 +4,55 @@ import avatar from "../../assets/img/cd-hero-background.jpg"
 import Switch from "../common/Switch";
 import {connect} from "react-redux";
 import { mode_dark,mode_light } from "../../store/actions/toggle_dark";
+import Util from "../../assets/js/util"
+import store from "../../store";
+import {logoutUser} from "../../actions/authActions";
 
 class Navbar extends Component {
+  dropIcon;
   
   componentDidMount() {
-    console.log(this.props);
-  }
   
+    this.dropdown = document.querySelectorAll('.dropIcon').forEach((dropdown)=>{
+      console.dir(dropdown);
+      dropdown.addEventListener('click', ()=>{
+        dropdown.nextSibling.classList.toggle('drop')
+      })
+    });
+    /*Header Code*/
+    (function() {
+      var mainHeader = document.getElementsByClassName('js-main-header')[0];
+      if( mainHeader ) {
+        var trigger = mainHeader.getElementsByClassName('js-main-header__nav-trigger')[0],
+          nav = mainHeader.getElementsByClassName('js-main-header__nav')[0];
+        //detect click on nav trigger
+        trigger.addEventListener("click", function(event) {
+          event.preventDefault();
+          var ariaExpanded = !Util.hasClass(nav, 'main-header__nav--is-visible');
+          //show nav and update button aria value
+          Util.toggleClass(nav, 'main-header__nav--is-visible', ariaExpanded);
+          trigger.setAttribute('aria-expanded', ariaExpanded);
+          if(ariaExpanded) { //opening menu -> move focus to first element inside nav
+            nav.querySelectorAll('[href], input:not([disabled]), button:not([disabled])')[0].focus();
+          }
+        });
+      }
+      window.onscroll = function(e) {
+        // print "false" if direction is down and "true" if up
+        if(this.oldScroll < this.scrollY){
+          mainHeader.classList.add("is-Hidden")
+        } else {
+          mainHeader.classList.remove("is-Hidden")
+        }
+        this.oldScroll = this.scrollY;
+      };
+    
+    }());
+  
+  }
+  logOut = () => {
+    store.dispatch(logoutUser());
+  };
   render() {
     return (
       <header className="main-header js-main-header">
@@ -68,9 +110,7 @@ class Navbar extends Component {
                   </a>
                   <div className="dropdown">
                     <ul>
-                      <li><a href="">yo</a></li>
-                      <li><a href="">sup</a></li>
-                      <li><a href="">hey</a></li>
+                      <li><button className="appearance--none" onClick={this.logOut}>Logout</button></li>
                     </ul>
                   </div>
                 </li>
