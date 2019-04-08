@@ -1,0 +1,174 @@
+/* --------------------------------
+
+Title: Login Form
+Descr: Login form template
+⚠️The style of the form elements is included in the _forms.scss global of the framework https://codyhouse.co/ds/docs/framework
+
+-------------------------------- */
+
+#login{
+  display: flex;
+  min-height: 100vh;
+  min-width: 100%;
+  max-width: 100vw;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-bg);
+  transition: .2s;
+  .form--holder {
+    flex-basis: 40%;;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-contrast-lower);
+    border-radius: 20px;
+    flex-wrap: wrap;
+    .login-form {
+      flex-basis: 70%;
+    }
+    .switch--holder{
+      flex-basis: 70%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+/* --------------------------------
+
+Title: Password Visibility Control
+Descr: Password input field with option to toggle password visibility
+
+-------------------------------- */
+
+:root {
+  --password-btn-width: 3.5em;
+  --password-icon-size: 2em;
+}
+
+.password {
+  position: relative;
+}
+
+.password__btn {
+  @include reset;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: var(--password-btn-width);
+  background-color: rgba(#FFF, 0); // fix issue on IE9/10 - button not clickable
+
+  display: none; // hide button if js is not enabled
+
+  &:focus {
+    color: var(--color-success-light);
+  }
+}
+
+.password__btn-label {
+  font-size: var(--text-sm);
+
+  &:last-child {
+    display: none;
+  }
+
+  .icon {
+    display: block;
+    color: inherit;
+    width: var(--password-icon-size);
+    height: var(--password-icon-size);
+  }
+}
+
+.password--text-is-visible {
+  .password__btn-label:first-child {
+    display: none;
+  }
+
+  .password__btn-label:last-child {
+    display: inline-block;
+  }
+}
+
+.js {
+  .password__input {
+    padding-right: calc(var(--space-sm) + var(--password-btn-width));
+  }
+
+  .password__input::-ms-reveal {
+    display: none;
+  }
+
+  .password__btn { // show button if js is enabled
+    display: block; // flex fallback
+    display: flex;
+  }
+}
+
+.form-control{
+  &:focus ~ .form-label, &.active ~ .form-label{
+    top: -10px;
+  }
+  &:focus ~ .form-label{
+    color: var(--color-primary);
+  }
+}
+
+.form-label{
+  position: absolute;
+  top: 20px;
+  left: 5px;
+  text-align: center;
+  transition: .5s;
+  &.mail{
+    width: 50px;
+  }
+  &.pass{
+    width: 85px;
+  }
+}
+@-webkit-keyframes autofill {
+  to {
+    background: transparent;
+  }
+}
+
+input:-internal-autofill-selected {
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}
+
+.logo{
+  width: 100%;
+  text-align: center;
+  svg{
+    path:not(.dark--one){
+      fill: var(--color-logo);
+    }
+    margin-bottom: 10px;
+  }
+  h5{
+    margin: 3px 0;
+    font-size: 13px;
+    color: var(--color-contrast-medium);
+  }
+  h4{
+    margin: 3px 0;
+    font-size: 17px;
+    color: var(--color-contrast-high);
+  }
+}
+
+.logo--box{
+  svg{
+    path:not(.dark--one){
+      fill: var(--color-logo);
+    }
+  }
+ }
+
+.iconLinks a svg path, .iconLinks a svg circle, .iconLinks a svg polygon{
+      fill: var(--color-logo);
+}

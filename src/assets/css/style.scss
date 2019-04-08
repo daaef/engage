@@ -1,0 +1,12 @@
+@import 'global';
+main{
+  min-height: 100vh;
+}
+
+.btn-success{
+  padding: 10px 30px;
+  background: #39A564;
+  color: #ffffff!important;
+  box-shadow: 0pt 3px 10px -5px;
+  //border-radius: 20px;
+}
