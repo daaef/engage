@@ -6,23 +6,24 @@ import {connect} from "react-redux";
 
 export const Switch = (props)=>{
   let themeSwitch;
-  const initTheme = ()=> {
-    var darkThemeSelected = !props.theme.light;
+  function initTheme() {
+    var darkThemeSelected = (localStorage.getItem('themeSwitch') !== null && localStorage.getItem('themeSwitch') === 'dark');
     // update checkbox
     themeSwitch.checked = darkThemeSelected;
     // update body data-theme attribute
     darkThemeSelected ? document.body.setAttribute('data-theme', 'dark') : document.body.removeAttribute('data-theme');
   };
   
-  const resetTheme = ()=> {
+  function resetTheme() {
     if(themeSwitch.checked) { // dark theme has been selected
       document.body.setAttribute('data-theme', 'dark');
-      props.theme.modeDark();
+      localStorage.setItem('themeSwitch', 'dark');
     } else {
       document.body.removeAttribute('data-theme');
-      props.theme.modeLight();
+      localStorage.removeItem('themeSwitch');
     }
-  };
+  }
+  
   useEffect(() => {
     themeSwitch = document.getElementById('themeSwitch');
     console.log(themeSwitch);

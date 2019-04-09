@@ -10,6 +10,7 @@ import {EventsIcon} from "../svgs/EventsIcon";
 import {GuestsIcon} from "../svgs/GuestsIcon";
 import {VenuesIcon} from "../svgs/VenuesIcon";
 import {UsersIcon} from "../svgs/UsersIcon";
+import {NavLink} from "react-router-dom";
 
 class Summary extends Component {
   
@@ -100,7 +101,7 @@ class Summary extends Component {
                 </div>
                 <div className="event--info">
                   <h3>Latest Events</h3>
-                  <button className="btn btn--success">Show All</button>
+                  <NavLink to="/dashboard" className="btn btn--success">Show All</NavLink>
                 </div>
               </div>
             </div>
@@ -133,8 +134,8 @@ class Summary extends Component {
                     </g>
                     <defs>
                       <filter id="filter0_i" x="-1" y="0" width="115" height="115" filterUnits="userSpaceOnUse"
-                              color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                              colorInterpolationFilters="sRGB">
+                        <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                         <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
                         <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
                                        result="hardAlpha"/>
@@ -186,7 +187,7 @@ class Summary extends Component {
           
                 </div>
                 <div>
-                  <button className="btn btn--success">Show All</button>
+                  <NavLink to="/dashboard" className="btn btn--success">Show All</NavLink>
                 </div>
               </div>
             </div>
