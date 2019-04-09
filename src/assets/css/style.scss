@@ -16,3 +16,12 @@ svg{
     font-size: 2rem;
   }
 }
+
+.dropdown{
+  button{
+    appearance: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+}

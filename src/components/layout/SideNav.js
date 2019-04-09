@@ -16,7 +16,7 @@ export default class SideNav extends Component {
   
   
   componentDidMount() {
-    document.querySelector('select--parent').parentElement.classList.toggle('active')
+    // document.querySelector('select--parent').parentElement.classList.toggle('active')
     }
   
   render() {
