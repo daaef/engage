@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Wed from "../../assets/img/wed.jpg"
 import Wedding from "../../assets/img/wedding.jpg"
 import {connect} from "react-redux";
-import { mode_dark,mode_light } from "../../store/actions/toggle_dark";
 import {startAction} from "../../store/actions/start";
 import {stopAction} from "../../store/actions/stop";
 import {Loading} from "../common/Loader";
@@ -103,13 +102,10 @@ class Events extends Component {
 const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors,
-  loading: state.loading,
-  light: state.light
+  loading: state.loading
 });
 
 const mapDispatchToProps = dispatch => ({
-  modeDark: () => dispatch(mode_dark),
-  modeLight: () => dispatch(mode_light),
   startAction: () => dispatch(startAction),
   stopAction: () => dispatch(stopAction)
 });

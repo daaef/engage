@@ -3,7 +3,6 @@ import {Logo} from "../svgs/Logo";
 import avatar from "../../assets/img/cd-hero-background.jpg"
 import Switch from "../common/Switch";
 import {connect} from "react-redux";
-import { mode_dark,mode_light } from "../../store/actions/toggle_dark";
 import Util from "../../assets/js/util"
 import store from "../../store";
 import {logoutUser} from "../../actions/authActions";
@@ -139,13 +138,10 @@ class Navbar extends Component {
 const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors,
-  loading: state.loading,
-  light: state.light
+  loading: state.loading
 });
 
 const mapDispatchToProps = dispatch => ({
-  modeDark: () => dispatch(mode_dark),
-  modeLight: () => dispatch(mode_light),
   startAction: () => dispatch(startAction),
   stopAction: () => dispatch(stopAction)
 });

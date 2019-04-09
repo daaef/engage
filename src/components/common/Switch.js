@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import {startAction} from "../../store/actions/start";
 import {stopAction} from "../../store/actions/stop";
-import {mode_dark, mode_light} from "../../store/actions/toggle_dark";
 import {connect} from "react-redux";
 
 export const Switch = (props)=>{
@@ -51,9 +50,7 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
   startAction: () => dispatch(startAction),
-  stopAction: () => dispatch(stopAction),
-  modeDark: () => dispatch(mode_dark),
-  modeLight: () => dispatch(mode_light)
+  stopAction: () => dispatch(stopAction)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Switch);

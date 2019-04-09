@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { mode_dark,mode_light } from "../../store/actions/toggle_dark";
 import {Switch} from "../common/Switch";
 import {Logo} from "../svgs/Logo";
 import {Loading} from "../common/Loader";
@@ -145,13 +144,10 @@ class Login extends Component {
 const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors,
-  loading: state.loading,
-  light: state.light
+  loading: state.loading
 });
 
 const mapDispatchToProps = dispatch => ({
-  modeDark: () => dispatch(mode_dark),
-  modeLight: () => dispatch(mode_light),
   startAction: () => dispatch(startAction),
   stopAction: () => dispatch(stopAction)
 });
