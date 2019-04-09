@@ -7,11 +7,14 @@ import { mode_dark,mode_light } from "../../store/actions/toggle_dark";
 import Util from "../../assets/js/util"
 import store from "../../store";
 import {logoutUser} from "../../actions/authActions";
+import {startAction} from "../../store/actions/start";
+import {stopAction} from "../../store/actions/stop";
 
 class Navbar extends Component {
   dropIcon;
   
   componentDidMount() {
+    console.log(this.props);
   
     this.dropdown = document.querySelectorAll('.dropIcon').forEach((dropdown)=>{
       console.dir(dropdown);
@@ -48,10 +51,13 @@ class Navbar extends Component {
       };
     
     }());
-  
+    console.log(this.props)
   }
   logOut = () => {
+    this.props.startAction();
     store.dispatch(logoutUser());
+    window.location.href = '/';
+    window.location.reload()
   };
   render() {
     return (
@@ -129,13 +135,18 @@ class Navbar extends Component {
 }
 
 
+
 const mapStateToProps = state => ({
   auth: state.auth,
-  errors: state.errors
+  errors: state.errors,
+  loading: state.loading,
+  light: state.light
 });
 
 const mapDispatchToProps = dispatch => ({
   modeDark: () => dispatch(mode_dark),
-  modeLight: () => dispatch(mode_light)
+  modeLight: () => dispatch(mode_light),
+  startAction: () => dispatch(startAction),
+  stopAction: () => dispatch(stopAction)
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

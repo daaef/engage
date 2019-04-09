@@ -12,7 +12,7 @@ import Dashboard from "./components/dashboard/Layout";
 
 
 // Check for token
-if (localStorage.jwtToken) {
+/*if (localStorage.jwtToken) {
   // Set auth token header auth
   setAuthToken(localStorage.jwtToken);
   // Decode token and get user info and exp
@@ -30,7 +30,7 @@ if (localStorage.jwtToken) {
     // Redirect to login
     window.location.href = '/';
   }
-}
+}*/
 
 class App extends Component {
   render() {
@@ -38,7 +38,7 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <Route exact path="/" component={Login} />
-          <Route exact path="/dashboard" component={Dashboard} />
+          <Route path="/dashboard" component={Dashboard} />
         </Router>
       </Provider>
   );

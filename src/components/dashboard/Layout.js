@@ -6,18 +6,42 @@ import Events from "../layout/Events";
 import Summary from "../layout/Summary";
 import Navbar from "../layout/Navbar";
 import SideNav from "../layout/SideNav";
+import setAuthToken from "../../utils/setAuthToken";
+import jwt_decode from "jwt-decode";
+import {logoutUser, setCurrentUser} from "../../actions/authActions";
+import {Switch} from "../common/Switch";
+
+
+// Check for token
+if (localStorage.jwtToken) {
+  // Set auth token header auth
+  setAuthToken(localStorage.jwtToken);
+  // Decode token and get user info and exp
+  const decoded = jwt_decode(localStorage.jwtToken);
+  // Set user and isAuthenticated
+  store.dispatch(setCurrentUser(decoded));
+  
+  // Check for expired token
+  const currentTime = Date.now() / 1000;
+  if (decoded.exp < currentTime) {
+    // Logout user
+    store.dispatch(logoutUser());
+    // TODO: Clear current Profile
+    
+    // Redirect to login
+    window.location.href = '/';
+  }
+}
 
 class Dashboard extends Component {
   render() {
     return (
-      <Provider store={store}>
         <Router>
           <Navbar />
-          <Route exact path={`${this.props.match.path}`} component={Events} />
-          <Route exact path={`${this.props.match.path}/summary`} component={Summary} />
+            <Route exact path={`${this.props.match.path}`} component={Events} />
+            <Route exact path={`${this.props.match.path}/summary`} component={Summary}/>
           <SideNav/>
         </Router>
-      </Provider>
     );
   }
 }

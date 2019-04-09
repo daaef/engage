@@ -3,16 +3,33 @@ import Wed from "../../assets/img/wed.jpg"
 import Wedding from "../../assets/img/wedding.jpg"
 import {connect} from "react-redux";
 import { mode_dark,mode_light } from "../../store/actions/toggle_dark";
+import {startAction} from "../../store/actions/start";
+import {stopAction} from "../../store/actions/stop";
+import {Loading} from "../common/Loader";
 
 class Events extends Component {
   
+  componentWillMount() {
+    this.props.startAction();
+  }
+  
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (!this.props.auth.isAuthenticated) {
+      window.location.href = '/';
+    }
+  }
+  
   componentDidMount() {
-    console.log(this.props);
+    setTimeout(
+      this.props.stopAction
+      , 1500);
   }
   
   render() {
     return (
-      <main className="cd-main-content">
+      <>
+        {(this.props.loading.loading) ? <Loading/> : ""}
+        <main className="cd-main-content">
         <div className="title__and__button">
           <p>Events</p>
           <div className="right">
@@ -77,6 +94,7 @@ class Events extends Component {
           </div>
         </div>
       </main>
+      </>
     );
   }
 }
@@ -84,11 +102,15 @@ class Events extends Component {
 
 const mapStateToProps = state => ({
   auth: state.auth,
-  errors: state.errors
+  errors: state.errors,
+  loading: state.loading,
+  light: state.light
 });
 
 const mapDispatchToProps = dispatch => ({
   modeDark: () => dispatch(mode_dark),
-  modeLight: () => dispatch(mode_light)
+  modeLight: () => dispatch(mode_light),
+  startAction: () => dispatch(startAction),
+  stopAction: () => dispatch(stopAction)
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Events);
