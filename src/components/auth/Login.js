@@ -16,7 +16,8 @@ class Login extends Component {
       email: '',
       password: '',
       errors: {},
-      loading: true
+      loading: true,
+      login: false
     };
     
     this.onChange = this.onChange.bind(this);
@@ -30,7 +31,10 @@ class Login extends Component {
       email: this.state.email,
       password: this.state.password
     };
-    
+  
+    this.setState({
+      login: true
+    });
     store.dispatch(loginUser(userData));
     
   }
@@ -82,6 +86,7 @@ class Login extends Component {
                            value={this.state.email}
                            onChange={this.onChange}
                            onFocus={this.onActive}
+                           required
                     />
                     <label className="form-label mail" htmlFor="email">Email</label>
                   </div>
@@ -93,12 +98,37 @@ class Login extends Component {
                            value={this.state.password}
                            onChange={this.onChange}
                            onFocus={this.onActive}
+                           required
                     />
                     <label className="form-label pass" htmlFor="password">Password</label>
                   </div>
-          
                   <div className="margin-bottom--sm">
-                    <button className="btn btn--success btn--md btn--full-width">Login</button>
+                    <button className={`btn btn--success btn--md btn--full-width ${this.state.login && 'btn--state-b'}`} onClick={this.handleLogin}>
+                      <span className="btn__content-a">
+                        Login
+                      </span>
+                      <span className="btn__content-b icon-text">
+                        <span>Logging in</span>
+                        <svg className="icon icon--is-spinning" aria-hidden="true" viewBox="0 0 16 16">
+                          <g strokeWidth="1" fill="currentColor" stroke="currentColor">
+                            <path d="M.5,8a7.5,7.5,0,1,1,1.91,5" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
+                          </g>
+                        </svg>
+                      </span>
+                    </button>
+                   {/* <button className="btn btn--primary btn--state-b">
+                      <span className="btn__content-a">
+                        Click me
+                      </span>
+                      <span className="btn__content-b icon-text">
+                        <svg className="icon icon--is-spinning" aria-hidden="true" viewBox="0 0 16 16">
+                          <g strokeWidth="1" fill="currentColor" stroke="currentColor">
+                            <path d="M.5,8a7.5,7.5,0,1,1,1.91,5" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
+                          </g>
+                        </svg>
+                        <span>Click me</span>
+                      </span>
+                    </button>*/}
                   </div>
                   <div className="switch--holder">
                     <Switch theme={this.props}/>

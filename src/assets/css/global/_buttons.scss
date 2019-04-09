@@ -89,3 +89,48 @@
 .btn--icon {
   padding: var(--space-xs);
 }
+
+/* --------------------------------
+
+Title: Buttons states
+Descr: Multi-state button elements
+
+-------------------------------- */
+
+.btn .btn__content-a {
+  display: inline-flex;
+}
+
+.btn .btn__content-b {
+  display: none;
+}
+
+.btn--state-b {
+  .btn__content-a {
+    display: none;
+  }
+
+  .btn__content-b {
+    display: block; // fallback
+    display: inline-flex;
+  }
+}
+
+/* preserve button width when switching from state A to state B */
+.btn--preserve-width {
+  .btn__content-b {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &.btn--state-b .btn__content-a {
+    display: block; // fallback
+    display: inline-flex;
+    visibility: hidden;
+  }
+}
