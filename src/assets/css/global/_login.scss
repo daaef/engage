@@ -122,12 +122,6 @@ Descr: Password input field with option to toggle password visibility
   left: 5px;
   text-align: center;
   transition: .5s;
-  &.mail{
-    width: 50px;
-  }
-  &.pass{
-    width: 85px;
-  }
 }
 @-webkit-keyframes autofill {
   to {

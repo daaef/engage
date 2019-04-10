@@ -2,6 +2,7 @@
   <dictionary name="MartianJS">
     <words>
       <w>axios</w>
+      <w>ename</w>
     </words>
   </dictionary>
 </component>

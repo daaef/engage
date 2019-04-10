@@ -4,6 +4,13 @@ Title: Main Header
 Descr: Accessible website navigation
 
 -------------------------------- */
+.appearance--none{
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--color-logo);
+  cursor: pointer;
+}
 
 :root {
     --main-header-height: 50px;

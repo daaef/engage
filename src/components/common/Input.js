@@ -6,7 +6,7 @@ export const Input = (props)=>{
   };
   
   return (
-    <div className="margin-bottom--md">
+    <div className="input margin-bottom--md">
       <input className="form-control"
              type={props.type}
              id={props.id}
