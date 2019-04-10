@@ -41,4 +41,7 @@
   width: 100%;
   z-index: 980;
   background: var(--color-logo-light);
+  svg path:not(.dark--one) {
+    fill: var(--color-logo);
+  }
 }

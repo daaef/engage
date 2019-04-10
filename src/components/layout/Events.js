@@ -4,7 +4,7 @@ import Wedding from "../../assets/img/wedding.jpg"
 import {connect} from "react-redux";
 import {startAction} from "../../store/actions/start";
 import {stopAction} from "../../store/actions/stop";
-import {Loading} from "../common/Loader";
+import {NavLink} from "react-router-dom";
 
 class Events extends Component {
   
@@ -27,19 +27,11 @@ class Events extends Component {
   render() {
     return (
       <>
-        {(this.props.loading.loading) ? <Loading/> : ""}
         <main className="cd-main-content">
         <div className="title__and__button">
           <p>Events</p>
           <div className="right">
-            <a href="#0" className="btn dropIcon">Add Event</a>
-            <div className="dropdown">
-              <ul>
-                <li><a href="">yo</a></li>
-                <li><a href="">sup</a></li>
-                <li><a href="">hey</a></li>
-              </ul>
-            </div>
+            <NavLink to="/dashboard/addevent" className="btn dropIcon">Add Event</NavLink>
           </div>
         </div>
         <div className="events">

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import {Provider} from "react-redux";
 import store from "../../store/index";
 import Events from "../layout/Events";
 import Summary from "../layout/Summary";
@@ -9,7 +8,11 @@ import SideNav from "../layout/SideNav";
 import setAuthToken from "../../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 import {logoutUser, setCurrentUser} from "../../actions/authActions";
-import {Switch} from "../common/Switch";
+import AddEvent from "../layout/AddEvent";
+import {startAction} from "../../store/actions/start";
+import {stopAction} from "../../store/actions/stop";
+import {connect} from "react-redux";
+import {Loading} from "../common/Loader";
 
 
 // Check for token
@@ -35,10 +38,13 @@ if (localStorage.jwtToken) {
 
 class Dashboard extends Component {
   render() {
+    console.log(this.props.loading);
     return (
         <Router>
           <Navbar />
+          {(this.props.loading) ? <Loading/> : ""}
             <Route exact path={`${this.props.match.path}`} component={Events} />
+            <Route exact path={`${this.props.match.path}/addevent`} component={AddEvent} />
             <Route exact path={`${this.props.match.path}/summary`} component={Summary}/>
           <SideNav/>
         </Router>
@@ -46,4 +52,15 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors,
+  loading: state.loading
+});
+
+const mapDispatchToProps = dispatch => ({
+  startAction: () => dispatch(startAction),
+  stopAction: () => dispatch(stopAction)
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)

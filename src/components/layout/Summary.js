@@ -26,7 +26,7 @@ class Summary extends Component {
   componentDidMount() {
     setTimeout(
       this.props.stopAction
-      , 1500);
+      , 500);
   
   
     /*Modal*/
@@ -176,7 +176,6 @@ class Summary extends Component {
   render() {
     return (
       <>
-        {(this.props.loading.loading) ? <Loading/> : ""}
         <main className="cd-main-content summary">
           <div className="title__and__button">
             <div className="right">

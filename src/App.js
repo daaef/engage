@@ -12,7 +12,7 @@ import Dashboard from "./components/dashboard/Layout";
 
 
 // Check for token
-/*if (localStorage.jwtToken) {
+if (localStorage.jwtToken) {
   // Set auth token header auth
   setAuthToken(localStorage.jwtToken);
   // Decode token and get user info and exp
@@ -30,7 +30,7 @@ import Dashboard from "./components/dashboard/Layout";
     // Redirect to login
     window.location.href = '/';
   }
-}*/
+}
 
 class App extends Component {
   render() {
