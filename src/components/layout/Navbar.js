@@ -10,17 +10,7 @@ import {startAction} from "../../store/actions/start";
 import {stopAction} from "../../store/actions/stop";
 
 class Navbar extends Component {
-  dropIcon;
-  componentDidMount() {
-    console.log(this.props);
-  
-    /*this.dropIcon = document.querySelectorAll('.dropIcon').forEach((dropdown)=>{
-      console.dir(dropdown);
-      dropdown.addEventListener('click', ()=>{
-        dropdown.nextSibling.classList.toggle('drop')
-      })
-    });*/
-    /*Header Code*/
+    componentDidMount() {
     (function() {
       var mainHeader = document.getElementsByClassName('js-main-header')[0];
       if( mainHeader ) {

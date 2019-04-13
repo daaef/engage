@@ -5,6 +5,8 @@ import {connect} from "react-redux";
 import {startAction} from "../../store/actions/start";
 import {stopAction} from "../../store/actions/stop";
 import {NavLink} from "react-router-dom";
+import {createEvent} from "../../store/actions/createEvent";
+import {EventMainCard} from "../common/EventMainCard";
 
 class Events extends Component {
   
@@ -25,6 +27,7 @@ class Events extends Component {
   }
   
   render() {
+    console.log(this.props.events.events[0])
     return (
       <>
         <main className="cd-main-content">
@@ -34,55 +37,10 @@ class Events extends Component {
             <NavLink to="/dashboard/addevent" className="btn dropIcon">Add Event</NavLink>
           </div>
         </div>
-        <div className="events">
-          <div className="event">
-            <div className="features__item">
-              <div className="text-component">
-                <img src={Wed} height="345" width="486" alt=""/>
-                <div className="content">
-                  <span>Title</span>
-                  <div>Ademola and Ifeoma</div>
-                </div>
-                <div className="content">
-                  <span>Date</span>
-                  <div>21st December 1991</div>
-                </div>
-                <div className="content">
-                  <span>Venue</span>
-                  <div>Eko Hotels & Suites, Lagos</div>
-                </div>
-                <div className="content">
-                  <span>Guests</span>
-                  <div>500 Seats</div>
-                </div>
-                <a href="#" className="btn-success">View</a>
-              </div>
-            </div>
-          </div>
-          <div className="event">
-            <div className="features__item">
-              <div className="text-component">
-                <img src={Wedding} height="345" width="486" alt=""/>
-                <div className="content">
-                  <span>Title:</span>
-                  <div>Omojo and Ibukun</div>
-                </div>
-                <div className="content">
-                  <span>Date:</span>
-                  <div>21st December 1991</div>
-                </div>
-                <div className="content">
-                  <span>Venue:</span>
-                  <div>Eko Hotels & Suites, Lagos</div>
-                </div>
-                <div className="content">
-                  <span>Guests:</span>
-                  <div>500 Seats</div>
-                </div>
-                <a href="#" className="btn-success">View</a>
-              </div>
-            </div>
-          </div>
+        <div className="events uk-grid uk-child-width-1-3@m uk-grid-collapse">
+          {this.props.events.events.map((event, index) => {
+            return <EventMainCard key={index} event={event}/>
+          })}
         </div>
       </main>
       </>
@@ -94,11 +52,13 @@ class Events extends Component {
 const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors,
+  events: state.events,
   loading: state.loading
 });
 
 const mapDispatchToProps = dispatch => ({
   startAction: () => dispatch(startAction),
-  stopAction: () => dispatch(stopAction)
+  stopAction: () => dispatch(stopAction),
+  createEvent: () => dispatch(createEvent)
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Events);

@@ -8,6 +8,8 @@ import store from "../../store";
 import {startAction} from "../../store/actions/start";
 import {stopAction} from "../../store/actions/stop";
 import {Input} from "../common/Input";
+import isEmpty from "../../validation/is-empty";
+import {createEvent} from "../../store/actions/createEvent";
 
 class Login extends Component {
   constructor(props) {
@@ -35,14 +37,16 @@ class Login extends Component {
     this.setState({
       login: true
     });
-    this.props.startAction();
+    // this.props.startAction();
     store.dispatch(loginUser(userData));
-    
   }
   
   
   onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({
+      [e.target.name]: e.target.value,
+      errors: {}
+    });
   }
   
   componentDidMount() {
@@ -61,7 +65,11 @@ class Login extends Component {
     }
     
     if (nextProps.errors) {
-      this.setState({ errors: nextProps.errors });
+      this.setState({
+        errors: nextProps.errors,
+        login: false
+      });
+      console.log(nextProps)
     }
   }
   render() {
@@ -71,6 +79,7 @@ class Login extends Component {
           {(this.props.loading) ? <Loading/> : ""}
             <header id="login">
               <div className="form--holder">
+                <p className="uk-margin-remove error">{(!isEmpty(this.state.errors)) ? this.state.errors.email: ""}</p>
                 <form className="login-form" onSubmit={this.onSubmit}>
                     <div className="logo">
                       <Logo width={212} height={26}/>
@@ -136,12 +145,14 @@ class Login extends Component {
 const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors,
+  events: state.events,
   loading: state.loading
 });
 
 const mapDispatchToProps = dispatch => ({
   startAction: () => dispatch(startAction),
-  stopAction: () => dispatch(stopAction)
+  stopAction: () => dispatch(stopAction),
+  createEvent: () => dispatch(createEvent)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -166,3 +166,9 @@ input:-internal-autofill-selected {
 .iconLinks a svg path, .iconLinks a svg circle, .iconLinks a svg polygon{
       fill: var(--color-logo);
 }
+
+.error{
+  color: var(--color-accent);
+  position: absolute;
+  top: 10px;
+}
