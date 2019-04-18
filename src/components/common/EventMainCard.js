@@ -17,6 +17,10 @@ export const EventMainCard = (props)=> {
   const {event} = props;
   let current = new Date(`${event.event_date}`);
   let date = `${days[current.getDay()]}, ${months[current.getMonth()]} ${current.getDate()}, ${current.getFullYear()}`;
+  const DelEvent = (e) =>{
+    props.deleteEvent(e.target.dataset.key)
+  };
+  console.log(props);
   return (
   <div className="event">
     <CSSTransition
@@ -47,7 +51,10 @@ export const EventMainCard = (props)=> {
             <span>Guests</span>
             <div>{event.guest_num}</div>
           </div>
+          <div className="uk-flex uk-flex-between">
           <NavLink to={`/dashboard/eventdetails/${event._id}`} className="btn-success">View</NavLink>
+          <button data-key={event._id} className="btn-danger" onClick={DelEvent}>Delete</button>
+          </div>
         </div>
       </div>
     }

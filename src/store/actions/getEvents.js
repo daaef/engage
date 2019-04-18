@@ -8,7 +8,6 @@ export const getEvents= () => dispatch => {
     axios
     .get('https://cryptic-meadow-10798.herokuapp.com/api/event/events')
     .then(res=>{
-      console.log(res.data);
       dispatch({
         type: GET_EVENTS,
         payload: res.data

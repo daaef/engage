@@ -11,6 +11,16 @@ main{
   //border-radius: 20px;
 }
 
+.btn-danger{
+  padding: 10px 30px;
+  background: var(--color-error);
+  color: #ffffff!important;
+  box-shadow: 0pt 3px 10px -5px;
+  //border-radius: 20px;
+  border: none!important;
+  line-height: 25px;
+}
+
 svg{
   text{
     font-size: 2rem;
