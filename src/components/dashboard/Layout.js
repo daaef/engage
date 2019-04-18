@@ -13,6 +13,7 @@ import {startAction} from "../../store/actions/start";
 import {stopAction} from "../../store/actions/stop";
 import {connect} from "react-redux";
 import {Loading} from "../common/Loader";
+import EventDetailView from "../layout/EventDetailView";
 
 
 // Check for token
@@ -46,6 +47,7 @@ class Dashboard extends Component {
             <Route exact path={`${this.props.match.path}`} component={Events} />
             <Route exact path={`${this.props.match.path}/addevent`} component={AddEvent} />
             <Route exact path={`${this.props.match.path}/summary`} component={Summary}/>
+            <Route exact path={`${this.props.match.path}/eventdetails/:id`} component={EventDetailView}/>
           <SideNav/>
         </Router>
     );

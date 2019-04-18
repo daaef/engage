@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
-import Wed from "../../assets/img/wed.jpg"
-import Wedding from "../../assets/img/wedding.jpg"
 import {connect} from "react-redux";
 import {startAction} from "../../store/actions/start";
 import {stopAction} from "../../store/actions/stop";
 import {NavLink} from "react-router-dom";
 import {createEvent} from "../../store/actions/createEvent";
 import {EventMainCard} from "../common/EventMainCard";
+import {getEvents} from "../../store/actions/getEvents";
+import store from "../../store";
+import {Load} from "../common/Load";
+import {CSSTransition} from "react-transition-group";
 
 class Events extends Component {
-  
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true
+    }
+  }
   componentWillMount() {
     this.props.startAction();
   }
@@ -21,13 +28,22 @@ class Events extends Component {
   }
   
   componentDidMount() {
+    let that = this;
+    store.dispatch(getEvents());
+    console.log("ran get events");
+    setTimeout(()=>{
+      if (that.props.events){
+        that.setState({
+          loading: false
+        })
+      }
+    }, 500);
     setTimeout(
       this.props.stopAction
-      , 1500);
+      , 500);
   }
   
   render() {
-    console.log(this.props.events.events[0])
     return (
       <>
         <main className="cd-main-content">
@@ -37,9 +53,18 @@ class Events extends Component {
             <NavLink to="/dashboard/addevent" className="btn dropIcon">Add Event</NavLink>
           </div>
         </div>
-        <div className="events uk-grid uk-child-width-1-3@m uk-grid-collapse">
+        <div className="events uk-grid uk-child-width-1-3@m uk-grid-small">
+            <CSSTransition
+              in={this.state.loading}
+              timeout={450}
+              classNames="vanish"
+              unmountOnExit
+            >
+              <Load/>
+            </CSSTransition>
+            
           {this.props.events.events.map((event, index) => {
-            return <EventMainCard key={index} event={event}/>
+            return <div className="uk-margin-top" key={index}><EventMainCard  event={event}/></div>
           })}
         </div>
       </main>
@@ -59,6 +84,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   startAction: () => dispatch(startAction),
   stopAction: () => dispatch(stopAction),
-  createEvent: () => dispatch(createEvent)
+  createEvent: () => dispatch(createEvent),
+  getEvents: () => dispatch(getEvents)
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Events);

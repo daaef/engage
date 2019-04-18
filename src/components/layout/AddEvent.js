@@ -12,6 +12,8 @@ import UIkit from "uikit";
 import {Redirect} from "react-router-dom";
 import store from "../../store";
 import {loginUser} from "../../actions/authActions";
+import {IDGenerator} from "../common/IDGenerator";
+import {getEvents} from "../../store/actions/getEvents";
 
 class AddEvent extends Component {
   constructor(props){
@@ -38,42 +40,53 @@ class AddEvent extends Component {
       event_date: new Date(),
       method_invitation: "",
       guest_num: "",
-      event_pic: "",
+      event_pic: null,
       event_venue: "",
       redirect: false
     }
   }
   
   handleFile = (e) => {
-    let image = new Image();
-    let reader = new FileReader();
-    reader.onload = function(e){
-      image.src = e.target.result;
-    };
-    reader.readAsDataURL(e.target.files[0]);
-    setTimeout(()=>{
-      this.setState({
-        event_pic: image.src
-      })
-    },500)
+    this.setState({
+      event_pic: e.target.files[0]
+    })
   };
   
   onChange =(e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
   
-  submitEvent =() => {
-    const Event = {
+  
+  submitEvent =(e) => {
+    e.preventDefault();
+    const id = new IDGenerator();
+    const formData = new FormData();
+    const config = {
+      headers: {
+        'content-type': 'multipart/form-data'
+      }
+    };
+    formData.append('event_name', this.state.event_name);
+    formData.append('event_type', this.state.event_type);
+    formData.append('event_date', this.state.event_date);
+    formData.append('event_venue', this.state.event_venue);
+    formData.append('event_image', this.state.event_pic);
+    formData.append('method_invitation', this.state.method_invitation);
+    formData.append('guest_num', this.state.guest_num);
+    formData.append('created_at',  new Date().toISOString());
+    /*const Event = {
+      id: id.generate(),
       event_name: this.state.event_name,
       event_type: this.state.event_type,
       event_date: this.state.event_date,
       event_venue: this.state.event_venue,
-      event_pic: this.state.event_pic,
+      event_image: this.state.event_pic,
       method_invitation: this.state.method_invitation,
-      guest_num: this.state.guest_num
-    };
-  console.log(Event,  new Date(`${Event.event_date}`));
-    store.dispatch(createEvent(Event));
+      guest_num: this.state.guest_num,
+      created_at: new Date().toISOString()
+    };*/
+  // console.log(Event,  new Date(`${Event.event_date}`));
+    store.dispatch(createEvent(formData, config));
     setTimeout(()=>{
       this.setState({
         redirect: true
@@ -111,6 +124,7 @@ class AddEvent extends Component {
   };
   
   renderRedirect = () => {
+    store.dispatch(getEvents());
     if (this.state.redirect) {
       return <Redirect to='/dashboard' />
     }
@@ -192,9 +206,9 @@ const Step1 = (props) => {
   const { event_name, event_type, event_venue, event_date,onDate, guest_num,event_pic,submitEvent, change, changePic, active } = props;
   return (
     <div className="uk-width-1-1@m uk-flex uk-flex-center uk-padding">
-      <div className="step1 uk-grid uk-child-width-1-3@m">
+      <form className="step1 uk-grid uk-child-width-1-3@m" onSubmit={submitEvent}>
         <div>
-        <Input type="email"
+        <Input type="text"
                id="ename"
                name="event_name"
                value={event_name}
@@ -274,8 +288,8 @@ const Step1 = (props) => {
                  required
           />
         </div>
-      </div>
-      <button className="btn uk-position-bottom-center btn--success" onClick={submitEvent}>Next</button>
+        <button className="btn uk-position-bottom-center btn--success" type="submit">Next</button>
+      </form>
     </div>
   )
 };
@@ -305,6 +319,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   startAction: () => dispatch(startAction),
   stopAction: () => dispatch(stopAction),
-  createEvent: () => dispatch(createEvent)
+  createEvent: () => dispatch(createEvent),
+  getEvents: () => dispatch(getEvents)
 });
 export default connect(mapStateToProps, mapDispatchToProps)(AddEvent);
