@@ -2,25 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="554c36be-df87-4089-858c-f2667cc6c5a6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/css/global/_loader.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/IDGenerator.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/Load.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/layout/EventDetailView.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/actions/getEvents.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/css/_global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/_global.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/css/global/_buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/global/_buttons.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/css/global/_events.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/global/_events.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/css/global/_loader.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/global/_loader.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/css/global/_sidenav.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/global/_sidenav.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/common/EventMainCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/EventMainCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/Layout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/AddEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/AddEvent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/EventDetailView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/EventDetailView.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/Events.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Events.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/eventReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/eventReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/createEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/createEvent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/SideNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/SideNav.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/layout/Events.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="29" column="23" lean-forward="true" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+            <state relative-caret-position="234">
+              <caret line="9" column="32" lean-forward="true" selection-start-line="9" selection-start-column="32" selection-end-line="15" selection-end-column="3" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -60,19 +48,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/assets/css/global/_loader.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+            <state relative-caret-position="260">
+              <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/layout/EventDetailView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="49" column="50" selection-start-line="49" selection-start-column="50" selection-end-line="49" selection-end-column="50" />
+            <state relative-caret-position="174">
+              <caret line="54" column="25" lean-forward="true" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#890#1018#0" />
               </folding>
             </state>
           </provider>
@@ -81,8 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/dashboard/Layout.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="53" column="3" lean-forward="true" selection-start-line="53" selection-start-column="3" selection-end-line="53" selection-end-column="3" />
+            <state relative-caret-position="247">
+              <caret line="49" column="25" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -90,11 +79,47 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/assets/css/global/_events.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="107" column="22" lean-forward="true" selection-start-line="107" selection-start-column="22" selection-end-line="107" selection-end-column="22" />
+            <state relative-caret-position="356">
+              <caret line="120" column="30" selection-start-line="120" selection-start-column="30" selection-end-line="120" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/assets/css/global/_main.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="7" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/assets/css/global/_sidenav.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="36" column="19" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
+              <folding>
+                <element signature="e#20#324#0" />
+                <element signature="e#259#320#0" />
+                <element signature="e#329#351#0" />
+                <element signature="e#615#707#0" />
+                <element signature="e#713#775#0" />
+                <element signature="e#813#975#0" />
+                <element signature="e#1022#1130#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/layout/SideNav.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="364">
+              <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -102,23 +127,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/common/EventMainCard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="30" column="62" lean-forward="true" selection-start-line="30" selection-start-column="62" selection-end-line="30" selection-end-column="62" />
+            <state relative-caret-position="260">
+              <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="28" selection-end-column="20" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/layout/AddEvent.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1014">
-              <caret line="93" column="7" lean-forward="true" selection-start-line="93" selection-start-column="7" selection-end-line="93" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-                <element signature="n#!!block;n#componentDidUpdate#0;n#AddEvent#0" />
+                <element signature="e#0#51#0" expanded="true" />
+                <element signature="e#578#1292#0" />
               </folding>
             </state>
           </provider>
@@ -175,7 +188,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/components/svgs/MiniLogo.js" />
         <option value="$PROJECT_DIR$/src/components/svgs/VenuesIcon.js" />
         <option value="$PROJECT_DIR$/src/components/svgs/UsersIcon.js" />
         <option value="$PROJECT_DIR$/src/components/svgs/DesignIcon.js" />
@@ -185,7 +197,6 @@
         <option value="$PROJECT_DIR$/src/reducers/errorReducer.js" />
         <option value="$PROJECT_DIR$/src/reducers/loadingReducer.js" />
         <option value="$PROJECT_DIR$/src/assets/css/global/_summary.scss" />
-        <option value="$PROJECT_DIR$/src/components/layout/SideNav.js" />
         <option value="$PROJECT_DIR$/src/assets/css/style.scss" />
         <option value="$PROJECT_DIR$/src/components/common/Switch.js" />
         <option value="$PROJECT_DIR$/src/assets/js/main.js" />
@@ -212,7 +223,6 @@
         <option value="$PROJECT_DIR$/src/components/common/UploadInput.js" />
         <option value="$PROJECT_DIR$/src/components/common/IDGenerator.js" />
         <option value="$PROJECT_DIR$/src/assets/css/global/_buttons.scss" />
-        <option value="$PROJECT_DIR$/src/components/dashboard/Layout.js" />
         <option value="$PROJECT_DIR$/src/components/layout/EventDetails.js" />
         <option value="$PROJECT_DIR$/src/actions/types.js" />
         <option value="$PROJECT_DIR$/src/reducers/eventReducer.js" />
@@ -220,12 +230,15 @@
         <option value="$PROJECT_DIR$/src/components/layout/AddEvent.js" />
         <option value="$PROJECT_DIR$/src/assets/css/_global.scss" />
         <option value="$PROJECT_DIR$/src/components/common/Load.js" />
-        <option value="$PROJECT_DIR$/src/components/layout/Events.js" />
-        <option value="$PROJECT_DIR$/src/assets/css/global/_loader.scss" />
         <option value="$PROJECT_DIR$/src/store/actions/getEvents.js" />
+        <option value="$PROJECT_DIR$/src/assets/css/global/_sidenav.scss" />
+        <option value="$PROJECT_DIR$/src/components/dashboard/Layout.js" />
+        <option value="$PROJECT_DIR$/src/components/layout/SideNav.js" />
+        <option value="$PROJECT_DIR$/src/components/layout/Events.js" />
         <option value="$PROJECT_DIR$/src/components/common/EventMainCard.js" />
-        <option value="$PROJECT_DIR$/src/components/layout/EventDetailView.js" />
+        <option value="$PROJECT_DIR$/src/assets/css/global/_loader.scss" />
         <option value="$PROJECT_DIR$/src/assets/css/global/_events.scss" />
+        <option value="$PROJECT_DIR$/src/components/layout/EventDetailView.js" />
       </list>
     </option>
   </component>
@@ -293,13 +306,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="engage-w-redux" type="b2602c69:ProjectViewProjectNode" />
-              <item name="engage-w-redux" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="engage-w-redux" type="b2602c69:ProjectViewProjectNode" />
@@ -387,12 +393,12 @@
       <workItem from="1555002473919" duration="26008000" />
       <workItem from="1555328755994" duration="4176000" />
       <workItem from="1555454998165" duration="7327000" />
-      <workItem from="1555582371772" duration="15192000" />
+      <workItem from="1555582371772" duration="20925000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128039000" />
+    <option name="totallyTimeSpent" value="133772000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -405,9 +411,9 @@
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="3" weight="0.32300884" />
+      <window_info anchor="bottom" id="Terminal" order="3" visible="true" weight="0.32300884" />
       <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Find" order="5" visible="true" weight="0.32853982" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.32853982" />
       <window_info anchor="bottom" id="Run" order="6" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
@@ -448,28 +454,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/store/reducers/themeReducer.js" />
-    <entry file="file://$PROJECT_DIR$/src/components/layout/SideNav.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/css/global/_summary.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1222">
-          <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/assets/js/util.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="26">
@@ -766,40 +750,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/common/Load.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/css/global/_loader.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/layout/Events.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="29" column="23" lean-forward="true" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/common/EventMainCard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="30" column="62" lean-forward="true" selection-start-line="30" selection-start-column="62" selection-end-line="30" selection-end-column="62" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/actions/getEvents.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -809,28 +759,97 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/dashboard/Layout.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="53" column="3" lean-forward="true" selection-start-line="53" selection-start-column="3" selection-end-line="53" selection-end-column="3" />
+        <state relative-caret-position="247">
+          <caret line="49" column="25" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/layout/EventDetailView.js">
+    <entry file="file://$PROJECT_DIR$/src/components/common/Load.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="49" column="50" selection-start-line="49" selection-start-column="50" selection-end-line="49" selection-end-column="50" />
+        <state relative-caret-position="104">
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/layout/Events.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="9" column="32" lean-forward="true" selection-start-line="9" selection-start-column="32" selection-end-line="15" selection-end-column="3" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/css/global/_loader.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/css/global/_mixins.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/css/global/_main.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="7" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/css/global/_sidenav.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="36" column="19" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
+          <folding>
+            <element signature="e#20#324#0" />
+            <element signature="e#259#320#0" />
+            <element signature="e#329#351#0" />
+            <element signature="e#615#707#0" />
+            <element signature="e#713#775#0" />
+            <element signature="e#813#975#0" />
+            <element signature="e#1022#1130#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/assets/css/global/_events.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="107" column="22" lean-forward="true" selection-start-line="107" selection-start-column="22" selection-end-line="107" selection-end-column="22" />
+        <state relative-caret-position="356">
+          <caret line="120" column="30" selection-start-line="120" selection-start-column="30" selection-end-line="120" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/layout/SideNav.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/common/EventMainCard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="28" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+            <element signature="e#578#1292#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/layout/EventDetailView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="54" column="25" lean-forward="true" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#890#1018#0" />
+          </folding>
         </state>
       </provider>
     </entry>

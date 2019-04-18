@@ -7,9 +7,6 @@ import {createEvent} from "../../store/actions/createEvent";
 import {EventMainCard} from "../common/EventMainCard";
 import {getEvents} from "../../store/actions/getEvents";
 import store from "../../store";
-import {Load} from "../common/Load";
-import {CSSTransition} from "react-transition-group";
-
 class Events extends Component {
   constructor(props) {
     super(props);
@@ -54,14 +51,6 @@ class Events extends Component {
           </div>
         </div>
         <div className="events uk-grid uk-child-width-1-3@m uk-grid-small">
-            <CSSTransition
-              in={this.state.loading}
-              timeout={450}
-              classNames="vanish"
-              unmountOnExit
-            >
-              <Load/>
-            </CSSTransition>
             
           {this.props.events.events.map((event, index) => {
             return <div className="uk-margin-top" key={index}><EventMainCard  event={event}/></div>

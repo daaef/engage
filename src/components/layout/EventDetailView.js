@@ -4,6 +4,9 @@ import {startAction} from "../../store/actions/start";
 import {stopAction} from "../../store/actions/stop";
 import {createEvent} from "../../store/actions/createEvent";
 import axios from "axios";
+import isEmpty from "../../validation/is-empty";
+import {CSSTransition} from "react-transition-group";
+import {Load} from "../common/Load";
 
 class EventDetailView extends Component {
   constructor(props) {
@@ -47,7 +50,24 @@ class EventDetailView extends Component {
     return (
       <>
         <main className="event-detail">
-          {eventContent && <h2 className="uk-light">{eventContent.event_name}</h2>}
+          <CSSTransition
+            in={!eventContent}
+            timeout={450}
+            classNames="vanish"
+            unmountOnExit
+          >
+            <Load/>
+          </CSSTransition>
+          {eventContent &&
+          <div className="uk-flex eventInfo uk-flex-wrap">
+            <div className="uk-width-2-3@m uk-width-1-2@s eventCover">
+              <img src={eventContent.event_image} alt=""/>
+            </div>
+            <div className="uk-width-1-3@m uk-width-1-2@s eventDetail uk-flex uk-flex-middle uk-flex-center">
+              <h3 className="uk-article-title uk-margin-remove uk-text-center">{eventContent.event_name}</h3>
+            </div>
+          </div>
+          }
         </main>
       </>
     );

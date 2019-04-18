@@ -29,13 +29,13 @@ export default class SideNav extends Component {
         </div>
         <ul>
           <li>
-            <NavLink to="/dashboard" exact={true} activeClassName="select--parent">
+            <NavLink to="/dashboard" exact={true} activeClassName="active">
               <EventsIcon/>
               <p>Events</p>
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/summary" exact={true} activeClassName="select--parent">
+            <NavLink to="/dashboard/summary" exact={true} activeClassName="active">
               <SummaryIcon/>
               <p>Summary</p>
             </NavLink>

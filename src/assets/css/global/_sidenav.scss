@@ -28,40 +28,45 @@
   background:  var(--color-sidenav);
   justify-content: center;
   z-index: 1;
-  li{
-    position: relative;
-    text-align: center;
-    width: 100%;
-    padding: 9px;
-    svg{
-      path,circle{
-        fill: var(--color-logo);
-        transition: .4s;
-      }
-    }
-    p{
-      color: var(--color-logo);
-      font-size: 14px;
-    }
-    &.active, &:hover{
-      &:before{
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 9px;
-        background: #F8A900;
-      }
-      background: var(--color-logo);
-      svg{
-        path,circle{
-          fill: var(--color-logo-light);
+  li {
+    width: 100px;
+    a {
+      position: relative;
+      text-align: center;
+      width: 100px;
+      padding: 9px;
+      display: block;
+      svg {
+        path, circle {
+          fill: var(--color-logo);
           transition: .4s;
         }
       }
-      p{
-        color: var(--color-logo-light);
+      p {
+        color: var(--color-logo);
+        font-size: 14px;
+      }
+      &.active, &:hover {
+        &:before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 100%;
+          width: 9px;
+          background: #F8A900;
+        }
+        background: var(--color-logo);
+        width: 100px;
+        svg {
+          path, circle {
+            fill: var(--color-logo-light);
+            transition: .4s;
+          }
+        }
+        p {
+          color: var(--color-logo-light);
+        }
       }
     }
   }
