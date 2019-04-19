@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import store from "../../store/index";
 import Events from "../layout/Events";
 import Summary from "../layout/Summary";

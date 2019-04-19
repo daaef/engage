@@ -18,6 +18,7 @@
     "uikit": "^3.0.3"
   },
   "scripts": {
+    "now-build": "react-scripts build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

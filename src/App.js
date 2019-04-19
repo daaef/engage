@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.scss';
 import './assets/js/main';
 import Login from "./components/auth/Login";
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import {Provider} from "react-redux";
 import store from "./store/index";
 import setAuthToken from "./utils/setAuthToken";
