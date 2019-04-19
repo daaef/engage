@@ -11,6 +11,12 @@ import {VenuesIcon} from "../svgs/VenuesIcon";
 import {UsersIcon} from "../svgs/UsersIcon";
 import {NavLink} from "react-router-dom";
 import Util from "../../assets/js/util";
+import {createEvent} from "../../store/actions/createEvent";
+import {getEvents} from "../../store/actions/getEvents";
+import {deleteEvent} from "../../store/actions/deleteEvent";
+import isEmpty from "../../validation/is-empty";
+import store from "../../store";
+import {EventSummaryCard} from "../common/EventSummaryCard";
 
 class Summary extends Component {
   componentWillMount() {
@@ -24,6 +30,7 @@ class Summary extends Component {
   }
   
   componentDidMount() {
+    store.dispatch(getEvents());
     setTimeout(
       this.props.stopAction
       , 500);
@@ -174,6 +181,7 @@ class Summary extends Component {
   }
   
   render() {
+    console.log(this.props.events.events);
     return (
       <>
         <main className="cd-main-content summary">
@@ -187,7 +195,7 @@ class Summary extends Component {
                     <h5 className="width-100 text--center">Select and Option to add</h5>
                     <div className="flex width-100 selfCenter flex--space-around flex--wrap">
                       <div className="iconLinks">
-                        <a href="#">
+                        <a href="#/dashboard/addevent">
                           <EventsIcon/>
                         </a>
                         <span>Event</span>
@@ -229,18 +237,18 @@ class Summary extends Component {
           <div className="feature-summary">
             <div className="event--list">
               <div>
-                <div className="event--card">
-                  <img src={Wed} alt="" />
-                    <div className="text">
-                      <p>Ademola and Ifeoma</p>
-                    </div>
-                </div>
-                <div className="event--card">
-                  <img src={Wedding} alt="" />
-                    <div className="text">
-                      <p>Omojo & Ibukun</p>
-                    </div>
-                </div>
+                {!isEmpty(this.props.events.events) &&
+                <>
+                  <EventSummaryCard event={this.props.events.events[this.props.events.events.length-1]}/>
+                  {/*<div className="event--card">*/}
+                  {/*  <img src={Wed} alt=""/>*/}
+                  {/*  <div className="text">*/}
+                  {/*    <p>Ademola and Ifeoma</p>*/}
+                  {/*  </div>*/}
+                  {/*</div>*/}
+                  {(this.props.events.events.length > 1) && <EventSummaryCard event={this.props.events.events[this.props.events.events.length-2]}/>}
+                </>
+                }
                 <div className="event--info">
                   <h3>Latest Events</h3>
                   <NavLink to="/dashboard" className="btn btn--success">Show All</NavLink>
@@ -323,7 +331,7 @@ class Summary extends Component {
                   </svg>
                   <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 44 44">
                     <g filter="url(#filter0_i)">
-                      <text x="35%" y="65%" fill="#AFAFAF">2</text>
+                      {!isEmpty(this.props.events.events) &&<text x="35%" y="65%" fill="#AFAFAF">{this.props.events.events.length}</text>}
                     </g>
                   </svg>
           
@@ -379,11 +387,15 @@ class Summary extends Component {
 const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors,
+  events: state.events,
   loading: state.loading
 });
 
 const mapDispatchToProps = dispatch => ({
   startAction: () => dispatch(startAction),
-  stopAction: () => dispatch(stopAction)
+  stopAction: () => dispatch(stopAction),
+  createEvent: () => dispatch(createEvent),
+  getEvents: () => dispatch(getEvents),
+  deleteEvent: () => dispatch(deleteEvent),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Summary);
